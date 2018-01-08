@@ -33,7 +33,7 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.json', '.vue']
   },
   plugins: [
     new ExtractTextPlugin({
@@ -100,6 +100,32 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: ['babel-loader', 'awesome-typescript-loader']
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            scss: ['vue-style-loader', {
+              loader: 'css-loader',
+              options: {
+                minimize: false,
+                sourceMap: false
+              }
+            },
+            {
+              loader: 'sass-loader',
+              exclude: /styles/,
+              options: {
+                includePaths: ['./src/scss'],
+                data: '@import "./src/scss/app";',
+                sourceMap: false
+              }
+            }
+            ],
+            ts: 'awesome-typescript-loader'
+          }
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

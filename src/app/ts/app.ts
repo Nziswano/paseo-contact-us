@@ -19,6 +19,6 @@ if (__IS_PROD__) {
   siteUrl = "development";
 }
 
-const el = document.getElementById("root");
+const el: any = document.getElementById("root");
 
 el.innerHTML += `<h1>${siteUrl}</h1>`;

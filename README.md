@@ -1,7 +1,7 @@
-# Base Webpack Config for JS Component
+# Paseo Contact Us Form
 
 ## Goal
-* Basic Webpack Config
+* Build generic form component to submit to backend service. Use Captcha.
 
 ## Notes
 * 3 Nov. 2017
