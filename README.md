@@ -1,7 +1,7 @@
-# Getting React to work with Wordpress API
+# Base Webpack Config for JS Component
 
 ## Goal
-* Create base framework for React with Wordpress API.
+* Basic Webpack Config
 
 ## Notes
 * 3 Nov. 2017
@@ -15,9 +15,12 @@
 
 * 1 January 2017 - cleanup and updated current prototype template with latest from other projects. Still focused on React.
 
+* 8 January 2017 - Removed panini code and use HTML Webpack Plugin to generate a page.
+
 ## npm run options
 * `npm run dev` - startup webpack-dev-server in dev mode
 * `npm start` - webpack dev server in production mode
+* `npm run build` - build the files into dist folder
 * `gh-deploy:build` - build and push to gh-pages
 * `npm test` - run test script
 

@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/catenare/site-prototype-template"
+    "url": "https://github.com/catenare/webpack-prototype"
   },
   "keywords": [
     "Static",
@@ -32,9 +32,9 @@
   "author": "Johan Martin <martin.johan@johan-martin.com> (http://www.johan-martin.com/)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/catenare/site-prototype-template/issues"
+    "url": "https://github.com/catenare/webpack-prototype/issues"
   },
-  "homepage": "https://github.com/catenare/site-prototype-template",
+  "homepage": "https://github.com/catenare/webpack-prototype",
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
