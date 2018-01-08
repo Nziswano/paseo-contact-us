@@ -3,7 +3,7 @@
 @import 'settings';
 @import '~font-awesome/scss/font-awesome';
 @import '~foundation-sites/scss/foundation';
-@import '~motion-ui/motion-ui';
+// @import '~motion-ui/motion-ui';
 
 @include foundation-global-styles;
 // @include foundation-grid;
@@ -50,7 +50,7 @@
 
 @include foundation-prototype-classes;
 
-@include motion-ui-transitions;
-@include motion-ui-animations;
-
+// @include motion-ui-transitions;
+// @include motion-ui-animations;
+@import 'site';
 @import 'custom';

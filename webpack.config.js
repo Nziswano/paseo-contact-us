@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebPackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const vendorPackages = require('./package.json')
@@ -25,12 +25,11 @@ setupEnv()
 
 module.exports = {
   entry: {
-    app: './src/app/ts/app.tsx',
+    app: './src/app/ts/app.ts',
     vendor: Object.keys(vendorPackages.dependencies).filter(name => (name !== 'font-awesome' && name !== 'csspin'))
   },
   output: {
     path: path.resolve(__dirname, 'dist/assets'),
-    publicPath: '/assets/',
     filename: '[name].js'
   },
   resolve: {
@@ -49,7 +48,13 @@ module.exports = {
     new webpack.DefinePlugin({
       __IS_PROD__: hostEnv
     }),
-    new StylelintPlugin({syntax: 'scss', emitErrors: false, lintDirtyModulesOnly: true})
+    new StylelintPlugin({syntax: 'scss', emitErrors: false, lintDirtyModulesOnly: true}),
+    new HtmlWebpackPlugin(
+      {
+        title: 'Webpack Prototype',
+        template: 'src/templates/template.html'
+      }
+    )
   ],
   module: {
     rules: [
@@ -117,12 +122,7 @@ module.exports = {
   },
   devtool: 'cheap-module-source-map',
   devServer: {
-    compress: true,
-    hot: false,
-    historyApiFallback: true,
-    watchContentBase: true,
-    open: false,
-    contentBase: 'dist/'
+    open: false
   }
 }
 
