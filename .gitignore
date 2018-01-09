@@ -5,3 +5,5 @@ blocks/
 src/img/video/*.mov
 *.mp*
 package-lock.json
+.awcache
+

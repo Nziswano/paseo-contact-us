@@ -15,5 +15,13 @@
   },
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true,
+    "useTranspileModule": true,
+    "useBable": true,
+    "useCache": true,
+    "doTypeCheck": true,
+    "forkChecker": true
+  }
 }

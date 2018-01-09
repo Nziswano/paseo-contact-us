@@ -1,4 +1,7 @@
 import Vue from "vue";
+import App from "./App.vue";
+import Register from "./components/register/Register.vue";
+
 import * as Webfont from "webfontloader";
 
 Webfont.load({
@@ -25,8 +28,6 @@ if (__IS_PROD__) {
 }
 
 const app = new Vue({
-  render(h) {
-    return h(ContactUs);
-  },
   el: "#root",
+  render: (h) => h(App),
 });
