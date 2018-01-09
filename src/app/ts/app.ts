@@ -1,6 +1,5 @@
 import Vue from "vue";
 import * as Webfont from "webfontloader";
-import ContactForm from "../components/ContactForm/ContactForm";
 
 Webfont.load({
   google: {
