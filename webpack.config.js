@@ -33,7 +33,10 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json', '.vue']
+    extensions: ['.ts', '.tsx', '.js', '.json', '.vue'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
   },
   plugins: [
     new ExtractTextPlugin({
@@ -99,7 +102,14 @@ module.exports = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'awesome-typescript-loader']
+        use: [
+          { loader: 'babel-loader' },
+          { loader: 'awesome-typescript-loader',
+            options: {
+              appendTsSuffixTo: [/\.vue$/]
+            }
+          }
+        ]
       },
       {
         test: /\.vue$/,

@@ -1,4 +1,6 @@
+import Vue from "vue";
 import * as Webfont from "webfontloader";
+import ContactForm from "../components/ContactForm/ContactForm";
 
 Webfont.load({
   google: {
@@ -10,6 +12,10 @@ Webfont.load({
   },
 });
 
+const ContactUs = Vue.component("contact-us", {
+  template: "<h1>This is a test</h1>",
+});
+
 import "../../scss/app.scss";
 
 let siteUrl: string; // eslint-disable-line
@@ -19,6 +25,9 @@ if (__IS_PROD__) {
   siteUrl = "development";
 }
 
-const el: any = document.getElementById("root");
-
-el.innerHTML += `<h1>${siteUrl}</h1>`;
+const app = new Vue({
+  render(h) {
+    return h(ContactUs);
+  },
+  el: "#root",
+});

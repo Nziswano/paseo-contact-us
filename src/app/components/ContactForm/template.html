@@ -1,0 +1,57 @@
+<!-- <div class="contact-form">
+    <form class="contact-us-form" :class="{hide: hideForm}" @submit.prevent="validateBeforeSubmit">
+            <input
+               v-model.trim="fullname" name="fullname"
+               v-validate="'min:2|max:50|required'"
+               :class="{'input': true, 'is-danger': errors.has('fullname') }"
+               type="text"
+               placeholder="Full name" required>
+        <span class="contact-us-form-error" v-show="errors.has('fullname')">{{ errors.first('fullname') }}</span>
+        <div class="input-group">
+            <span class="input-group-label"><i class="fa fa-envelope"></i></span>
+            <input class="input-group-field" v-model.trim="email" name="email" v-validate="'required|email'" type="email" placeholder="Email"
+                    required>
+        </div>
+        <span class="contact-us-form-error" v-show="errors.has('email')">{{ errors.first('email') }}</span>
+        <div class="input-group">
+            <span class="input-group-label"><i class="fa fa-phone"></i></span>
+        <input class="input-group-field"
+               v-model.trim="telephone"
+               v-mask="['(###) ###-###X']"
+               name="telephone"
+               type="tel"
+               v-validate="{ required: true}"
+               placeholder=" (083) 999-9999 "
+               required>
+        </div>
+            <span class="contact-us-form-error" v-show="errors.has('telephone')">{{ errors.first('telephone') }}</span>
+        <textarea v-model.trim="message" name="message" id="" v-validate="'max:500'" rows="5"
+                  placeholder="Type your message here"></textarea>
+            <span v-show="errors.has('message')">{{ errors.first('message') }}</span>
+        <div class="contact-us-form-actions">
+            <div id="recaptcha"></div>
+            <input type="submit" class="button captcha" value="Submit"
+                   :disabled="isSubmitDisabled" />
+        </div>
+    </form>
+    <div class="loader" :class="{hide: hideLoader}">
+        <div class="cp-spinner cp-balls"></div>
+    </div>
+    <div class="result-message" :class="{hide: hideMessage}">
+        <div v-if="resultMessage" class="alert-box callout success">
+            <p><i class="fa fa-check"></i>Your information is saved. Thank you!</p>
+        </div>
+
+        <div v-else class="alert-box callout warning">
+            <p><i class="fa fa-exclamation-triangle"></i>There was a problem saving your information. Please try again later.</p>
+        </div>
+        <div class="site-button">
+        <button @click="showForm" class="success button" aria-label="Dismiss alert" type="button">
+            Close
+        </button>
+        </div>
+    </div>
+</div> -->
+<div>
+    <h1>Hello World! {{msg}}</h1>
+</div>
