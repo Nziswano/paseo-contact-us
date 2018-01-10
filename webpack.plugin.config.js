@@ -1,36 +1,22 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebPackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const vendorPackages = require('./package.json')
 const combineLoaders = require('webpack-combine-loaders')
-const StylelintPlugin = require('stylelint-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-
-let hostEnv
-
-const setupEnv = () => {
-  switch (process.env.NODE_ENV) {
-    case 'production':
-      hostEnv = true
-      break
-    default:
-      hostEnv = false
-      break
-  }
-}
-
-setupEnv()
 
 module.exports = {
   entry: {
-    app: './src/app/ts/app.ts',
+    contactus: './src/app/ts/components/ContactUs/index.vue',
     vendor: Object.keys(vendorPackages.dependencies).filter(name => (name !== 'font-awesome' && name !== 'csspin'))
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
+    path: path.resolve(__dirname, 'plugin'),
+    filename: '[name].min.js',
+    libraryTarget: 'umd',
+    library: 'paseo-contact-us',
+    umdNamedDefine: true
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.vue'],
@@ -47,17 +33,7 @@ module.exports = {
       name: 'vendor',
       async: true,
       minChunks: Infinity
-    }),
-    new webpack.DefinePlugin({
-      __IS_PROD__: hostEnv
-    }),
-    new StylelintPlugin({syntax: 'scss', emitErrors: false, lintDirtyModulesOnly: true}),
-    new HtmlWebpackPlugin(
-      {
-        title: 'Webpack Prototype',
-        template: 'src/templates/template.html'
-      }
-    )
+    })
   ],
   module: {
     rules: [
@@ -159,18 +135,6 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   devServer: {
     open: false
-  }
-}
-
-if (process.env.PLUGIN === 'plugin') {
-  module.exports.entry = {
-    contactus: './src/app/ts/components/ContactUs/index.vue',
-    vendor: Object.keys(vendorPackages.dependencies).filter(name => (name !== 'font-awesome' && name !== 'csspin'))
-  }
-
-  module.exports.output = {
-    path: path.resolve(__dirname, 'plugin'),
-    filename: 'contactus.min.js'
   }
 }
 

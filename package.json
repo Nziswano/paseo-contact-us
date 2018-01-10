@@ -1,8 +1,8 @@
 {
   "name": "paseo_contact_us",
   "version": "0.0.1",
-  "description": "Paseo Contact Us Form",
-  "main": "index.js",
+  "description": "Paseo Contact Us Component",
+  "main": "plugin/contactus.min.js",
   "directories": {
     "test": "tests"
   },
@@ -13,7 +13,7 @@
     "prod:server": "cross-env NODE_ENV=production webpack-dev-server --color --progress",
     "dev:server": "cross-env NODE_ENV=development webpack-dev-server --color --progress --hot",
     "build": "npm-run-all -s build:webpack",
-    "dev:build": "cross-env NODE_ENV=development npm-run-all -s webpack:dev",
+    "build:plugin": "cross-env NODE_ENV=production webpack --progress --hide-modules --config webpack.plugin.config.js",
     "build:webpack": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "lint": "esw webpack.config.* src --color",
     "lint:watch": "npm run lint -- --watch",
