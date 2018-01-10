@@ -14,7 +14,7 @@ Webfont.load({
 
 import "../../scss/app.scss";
 
-let siteUrl: string = "development"; // eslint-disable-line
+let siteUrl: string = "http://localhost:5000/register";
 let captchaKey: string = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 Vue.config.devtools = true;
 

@@ -1,4 +1,5 @@
 import axios from "axios";
+import uuid4 from "uuid/v4";
 import VeeValidate, {Validator} from "vee-validate";
 import Vue from "vue";
 import Component from "vue-class-component";
@@ -73,14 +74,29 @@ export default class ContactUs extends Vue {
           mobile: this.telephone,
           postalcode: this.postalcode,
           time: new Date().toLocaleString(),
+          uuid: uuid4(),
         };
 
-        setTimeout(() => {
+        axios({
+          data: fields,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+          method: "post",
+          url: this.url,
+        }).then((response) => {
           this.hideLoader = true;
           this.hideMessage = false;
-          this.resultMessage = true;
-        }, 1000);
-
+          this.resultMessage = false;
+          if (response.data) {
+            this.resultMessage = true;
+          }
+        }).catch( (e) => {
+          this.hideLoader = true;
+          this.hideMessage = false;
+          this.resultMessage = false;
+        });
         return;
       }
     });
