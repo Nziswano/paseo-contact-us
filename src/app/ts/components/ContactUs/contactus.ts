@@ -8,8 +8,6 @@ import getFinger from "./lib/fingerprint";
 
 Vue.use(VeeValidate, {classes: true});
 
-// tslint:disable:no-console
-
 @Component({
   components: {
     Captcha,
@@ -78,7 +76,6 @@ export default class ContactUs extends Vue {
         };
 
         setTimeout(() => {
-          console.log("data:", fields);
           this.hideLoader = true;
           this.hideMessage = false;
           this.resultMessage = true;
