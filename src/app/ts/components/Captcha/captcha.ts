@@ -1,23 +1,23 @@
 import Vue from "vue";
 import Component from "vue-class-component";
+import getCaptcha from "./lib/captcha";
 
 @Component({
   props: {
-    captcha: {
-      type: Promise,
+    captchaKey: {
+      type: String,
     },
   },
 })
 export default class Captcha extends Vue {
-  protected captcha: Promise<any>;
+  // protected captcha: Promise<any>;
   protected localCaptcha: any = null;
   protected widgetId: any =  null;
-  protected captchaKey: string = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+  protected captchaKey: string;
   protected captchaResponse: string = null;
   protected captchaId: string = null;
-  /* data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" */
-  protected createCaptcha: any = () => {
-    this.captcha.then((captcha) => {
+  protected createCaptcha: any = (siteCaptcha) => {
+    siteCaptcha.then((captcha) => {
       const widgetId = captcha.render("recaptcha", {
         callback: this.validate_captcha,
         sitekey: this.captchaKey,
@@ -28,8 +28,9 @@ export default class Captcha extends Vue {
   }
 
   protected mounted() {
-    console.log("This is captcha:", this.captcha);
-    this.createCaptcha();
+    const captcha = getCaptcha;
+    console.log("This is captcha:", this.captchaKey);
+    this.createCaptcha(captcha);
   }
 
   protected setLocalCaptcha(data) {

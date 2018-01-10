@@ -3,6 +3,7 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import {mask} from "vue-the-mask";
 import Captcha from "../Captcha/index.vue";
+import getFinger from "./lib/fingerprint";
 
 Vue.use(VeeValidate, {classes: true});
 
@@ -12,12 +13,9 @@ Vue.use(VeeValidate, {classes: true});
   },
   directives: {mask},
   props: {
-    captcha: {
-      type: Promise,
-    },
-    finger: {
-      type: Promise,
-    },
+      captcha: {
+       type: String,
+     },
     url: {
       type: String,
     },
@@ -25,7 +23,7 @@ Vue.use(VeeValidate, {classes: true});
 })
 export default class ContactUs extends Vue {
   protected url: string;
-  protected captcha: Promise<any>;
+  // protected captcha: Promise<any>;
   protected finger: Promise<any>;
   protected fullname: string = null;
   protected email: string = null;

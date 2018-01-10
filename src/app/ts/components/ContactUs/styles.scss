@@ -14,6 +14,12 @@ $alert-box-opacity: 0.2;
     margin-top: -0.5rem;
   }
 
+  .contactus-field {
+    .button {
+      margin: 2rem 0;
+    }
+  }
+
   .loader {
     padding-left: 30%;
     padding-top: 40%;
@@ -41,17 +47,6 @@ $alert-box-opacity: 0.2;
 
     .button {
       border-radius: 10px;
-    }
-  }
-
-  .input-group {
-    span {
-      display: block;
-    }
-
-    .input-group-label {
-      font-weight: bold;
-      width: 10rem;
     }
   }
 

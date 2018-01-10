@@ -1,8 +1,6 @@
 import Vue from "vue";
 import * as Webfont from "webfontloader";
-import getCaptcha from "./captcha";
 import ContactUs from "./components/ContactUs/index.vue";
-import getFinger from "./fingerprint";
 
 Webfont.load({
   google: {
@@ -16,19 +14,19 @@ Webfont.load({
 
 import "../../scss/app.scss";
 
-let siteUrl: string; // eslint-disable-line
+let siteUrl: string = "development"; // eslint-disable-line
+let captchaKey: string = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+
 if (__IS_PROD__) {
   siteUrl = "production";
-} else {
-  siteUrl = "development";
+  captchaKey = "";
 }
 
 const app = new Vue({
   el: "#root",
   render: (h) => h(ContactUs, {
     props: {
-      captcha: getCaptcha,
-      finger: getFinger,
+      captcha: captchaKey,
       url: siteUrl,
     },
   }),
