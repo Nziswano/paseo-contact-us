@@ -1,8 +1,7 @@
 import Vue from "vue";
-import App from "./App.vue";
-import Register from "./components/register/Register.vue";
-
 import * as Webfont from "webfontloader";
+import getCaptcha from "./captcha";
+import ContactUs from "./components/ContactUs/index.vue";
 
 Webfont.load({
   google: {
@@ -12,10 +11,6 @@ Webfont.load({
       "Roboto",
   ],
   },
-});
-
-const ContactUs = Vue.component("contact-us", {
-  template: "<h1>This is a test</h1>",
 });
 
 import "../../scss/app.scss";
@@ -29,5 +24,9 @@ if (__IS_PROD__) {
 
 const app = new Vue({
   el: "#root",
-  render: (h) => h(App),
+  render: (h) => h(ContactUs, {
+    props: {
+      captcha: getCaptcha,
+    },
+  }),
 });

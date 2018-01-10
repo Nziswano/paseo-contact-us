@@ -1,0 +1,103 @@
+$alert-box-opacity: 0.2;
+
+.contactus-form {
+  .contact-us-form-error {
+    @include form-input-error;
+    color: #cc4b37;
+    display: block;
+    font-size: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    margin-bottom: 1rem;
+    margin-top: -8px;
+    margin-top: -0.5rem;
+  }
+
+  .loader {
+    padding-left: 30%;
+    padding-top: 40%;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .invalid {
+    border-color: #f00;
+  }
+
+  .untouched {
+    border-color: #fddb54;
+  }
+
+  .result-message {
+    margin-top: 30%;
+  }
+
+  .site-button {
+    margin-top: 1em;
+    text-align: center;
+
+    .button {
+      border-radius: 10px;
+    }
+  }
+
+  .input-group {
+    span {
+      display: block;
+    }
+
+    .input-group-label {
+      font-weight: bold;
+      width: 10rem;
+    }
+  }
+
+  .alert-box {
+    //padding-right: 3.25rem;
+    width: 100%;
+
+    &.callout {
+      color: $white;
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &.alert {
+      background-color: rgba($alert-color, $alert-box-opacity);
+      border: 3px solid $alert-color;
+      border-radius: 5px;
+    }
+
+    &.warning {
+      background-color: rgba($warning-color, $alert-box-opacity);
+      border: 3px solid $warning-color;
+      border-radius: 5px;
+    }
+
+    &.success {
+      background-color: rgba($success-color, $alert-box-opacity);
+      border: 3px solid $success-color;
+      border-radius: 5px;
+    }
+
+    &.info {
+      background-color: rgba($primary-color, $alert-box-opacity);
+      border: 3px solid $primary-color;
+      border-radius: 5px;
+    }
+
+    i {
+      border: 2px solid $white;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      padding: 0.3em 0.325em;
+
+    }
+
+  }
+
+}

@@ -1,0 +1,87 @@
+<section class="contactus-form">
+  <h1>Contact Us Form</h1>
+  <form class="contactus-form" :class="{hide: hideForm}" @submit.prevent="validateBeforeSubmit">
+    <div class="grid-container">
+      <div class="input-group">
+        <label class="input-group-label">Full Name</label>
+        <input class="input-group-field"
+          v-model.trim="fullname"
+          v-validate="'min:2|max:50|required'"
+          :class="{'input': true, 'is-danger': errors.has('fullname')}"
+          placeholder="Full Name"
+          required
+          name="fullname"
+          type="text"
+          >
+      </div>
+      <span class="contact-us-form-error" v-show="errors.has('fullname')">
+        {{errors.first('fullname')}}
+      </span>
+      <div class="input-group">
+        <label class="input-group-label">Postal Code</label>
+        <input class="input-group-field" v-model.trim="postalcode"  v-validate="'min:4|max:10|required'"
+          name="postalcode" type="text" placeholder="Postal Code" required>
+      </div>
+      <span class="contact-us-form-error" v-show="errors.has('postalcode')">
+        {{errors.first('postalcode')}}
+      </span>
+      <div class="input-group">
+        <label class="input-group-label">Mobile Number</label>
+        <input class="input-group-field"
+          v-model.trim="telephone"
+          v-mask="['(###) ###=###X']"
+          v-validate="'required'"
+          placeholder=" (083) 999-999 "
+          name="telephone"
+          required
+          type="tel">
+      </div>
+      <span class="contact-us-form-error" v-show="errors.has('telephone')">
+        {{errors.first('telephone')}}
+      </span>
+      <div class="input-group">
+        <label class="input-group-label">Email</label>
+        <input class="input-group-field"
+          v-model.trim="email"
+          v-validate="'email'"
+          name="email"
+          type="email"
+          placeholder="Email"
+         >
+      </div>
+      <span class="contact-us-form-error" v-show="errors.has('email')">
+        {{errors.first('email')}}
+      </span>
+      <div class="input-group">
+        <label class="input-group-label">Age</label>
+        <input class="input-group-field"
+          v-model.trim="age"
+          v-validate="'required|numeric|min_value:10'"
+          placeholder="age"
+          name="age"
+          type="number"
+          >
+      </div>
+      <span class="contact-us-form-error" v-show="errors.has('age')">
+        {{errors.first('age')}}
+      </span>
+      <div>
+      <input type="submit" class="secondary rounded button" value="Submit" :disabled="isSubmitDisabled" />
+    </div>
+  </div>
+  </form>
+  <div class="loader" :class="{hide: hideMessage}">
+    <div class="cp-spinner cp-balls"></div>
+  </div>
+  <div class="result-message" :class="{hide: hideMessage}">
+    <div v-if="resultMessage" class="alert-box callout success">
+      <p><i class="fa fa-check"></i>Your information is saved. Thank you!</p>
+    </div>
+    <div v-else class="alert-box callout warning">
+      <p><i class="fa fa-exclamation-triangle"></i>There was a problem saving your information. Please try again later.</p>
+    </div>
+    <div class="site-button">
+      <button @click="showForm" class="success button" aria-labels="Dismiss alert" type="button">Close</button>
+    </div>
+  </div>
+</section>
