@@ -1,3 +1,4 @@
+@import '~csspin/css/csspin-balls.css';
 $alert-box-opacity: 0.2;
 
 .contactus-form {
@@ -14,31 +15,45 @@ $alert-box-opacity: 0.2;
     margin-top: -0.5rem;
   }
 
+
+
   .contactus-field {
     .button {
       margin: 2rem 0;
     }
-  }
 
+    .invalid {
+      border-color: #f00;
+    }
+
+    .untouched {
+      border-color: #fddb54;
+    }
+
+    .dirty {
+      border-color: #c60;
+    }
+
+    .valid {
+      border-color: #6c0;
+    }
+  }
+}
+
+.contactus {
   .loader {
-    padding-left: 30%;
-    padding-top: 40%;
+    left: 45%;
+    position: relative;
+    top: 40%;
   }
 
   .hide {
     display: none;
   }
 
-  .invalid {
-    border-color: #f00;
-  }
-
-  .untouched {
-    border-color: #fddb54;
-  }
-
   .result-message {
-    margin-top: 30%;
+    position: relative;
+    top: 30%;
   }
 
   .site-button {
@@ -52,7 +67,9 @@ $alert-box-opacity: 0.2;
 
   .alert-box {
     //padding-right: 3.25rem;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
 
     &.callout {
       color: $white;

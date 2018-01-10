@@ -16,10 +16,12 @@ import "../../scss/app.scss";
 
 let siteUrl: string = "development"; // eslint-disable-line
 let captchaKey: string = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+Vue.config.devtools = true;
 
 if (__IS_PROD__) {
   siteUrl = "production";
   captchaKey = "";
+  Vue.config.devtools = false;
 }
 
 const app = new Vue({

@@ -1,4 +1,4 @@
-import * as Fingerprint2 from "fingerprintjs2";
+import Fingerprint2 from "fingerprintjs2";
 
 const getFinger = new Promise((resolve) => {
 
