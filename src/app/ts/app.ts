@@ -2,6 +2,7 @@ import Vue from "vue";
 import * as Webfont from "webfontloader";
 import getCaptcha from "./captcha";
 import ContactUs from "./components/ContactUs/index.vue";
+import getFinger from "./fingerprint";
 
 Webfont.load({
   google: {
@@ -27,6 +28,8 @@ const app = new Vue({
   render: (h) => h(ContactUs, {
     props: {
       captcha: getCaptcha,
+      finger: getFinger,
+      url: siteUrl,
     },
   }),
 });

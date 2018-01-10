@@ -2,12 +2,22 @@ import VeeValidate from "vee-validate";
 import Vue from "vue";
 import Component from "vue-class-component";
 import {mask} from "vue-the-mask";
+import Captcha from "../Captcha/index.vue";
 
 Vue.use(VeeValidate, {classes: true});
 
 @Component({
+  components: {
+    Captcha,
+  },
   directives: {mask},
   props: {
+    captcha: {
+      type: Promise,
+    },
+    finger: {
+      type: Promise,
+    },
     url: {
       type: String,
     },
@@ -15,6 +25,8 @@ Vue.use(VeeValidate, {classes: true});
 })
 export default class ContactUs extends Vue {
   protected url: string;
+  protected captcha: Promise<any>;
+  protected finger: Promise<any>;
   protected fullname: string = null;
   protected email: string = null;
   protected telephone: string = null;

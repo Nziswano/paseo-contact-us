@@ -66,6 +66,7 @@
         {{errors.first('age')}}
       </span>
       <div>
+      <Captcha :captcha="captcha" />
       <input type="submit" class="secondary rounded button" value="Submit" :disabled="isSubmitDisabled" />
     </div>
   </div>
