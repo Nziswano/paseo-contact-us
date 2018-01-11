@@ -2,7 +2,7 @@
   "name": "paseo_contact_us",
   "version": "0.0.1",
   "description": "Paseo Contact Us Component",
-  "main": "plugin/contactus.min.js",
+  "main": "plugin/paseocontactus.min.js",
   "directories": {
     "test": "tests"
   },
