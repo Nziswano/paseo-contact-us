@@ -1,6 +1,6 @@
 import Vue from "vue";
 import * as Webfont from "webfontloader";
-import ContactUs from "./components/ContactUs/index.vue";
+import PaseoContactUs from "./PaseoContactUs.vue";
 
 Webfont.load({
   google: {
@@ -26,7 +26,7 @@ if (__IS_PROD__) {
 
 const app = new Vue({
   el: "#root",
-  render: (h) => h(ContactUs, {
+  render: (h) => h(PaseoContactUs, {
     props: {
       captcha: captchaKey,
       url: siteUrl,
