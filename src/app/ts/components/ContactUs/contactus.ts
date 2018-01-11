@@ -52,6 +52,7 @@ export default class ContactUs extends Vue {
    * Component mounts
    */
   protected mounted() {
+    console.log("component mounted");
     getFinger.then( (result) => {
       this.finger = result;
     } );

@@ -8,7 +8,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: {
-    paseocontactus: './src/app/ts/PaseoContactUs.vue'
+    paseocontactus: './src/app/ts/components/ContactUs/index.vue'
   },
   output: {
     path: path.resolve(__dirname, 'plugin'),
@@ -36,6 +36,11 @@ module.exports = {
     new ExtractTextPlugin({
       filename: '[name].css',
       allChunks: true
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      async: true,
+      minChunks: Infinity
     }),
     new HtmlWebpackPlugin(
       {
