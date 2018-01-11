@@ -2,13 +2,12 @@ const path = require('path')
 const webpack = require('webpack')
 const CleanWebPackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const vendorPackages = require('./package.json')
 const combineLoaders = require('webpack-combine-loaders')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: {
-    contactus: './src/app/ts/components/ContactUs/index.vue'
+    paseocontactus: './src/app/ts/PaseoContactUs.vue'
   },
   output: {
     path: path.resolve(__dirname, 'plugin'),
@@ -30,11 +29,6 @@ module.exports = {
     new ExtractTextPlugin({
       filename: '[name].css',
       allChunks: true
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      async: true,
-      minChunks: Infinity
     })
   ],
   module: {
