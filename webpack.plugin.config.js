@@ -8,8 +8,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: {
-    contactus: './src/app/ts/components/ContactUs/index.vue',
-    vendor: Object.keys(vendorPackages.dependencies).filter(name => (name !== 'font-awesome' && name !== 'csspin'))
+    contactus: './src/app/ts/components/ContactUs/index.vue'
   },
   output: {
     path: path.resolve(__dirname, 'plugin'),
@@ -19,12 +18,7 @@ module.exports = {
     umdNamedDefine: true
   },
   externals: {
-    Vue: 'vue',
-    axios: 'axios',
-    uuid4: 'uuid',
-    VeeValidate: 'vee-validate',
-    Component: 'vue-class-component',
-    mask: 'vue-the-mask'
+    Vue: 'vue'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.vue'],
