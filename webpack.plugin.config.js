@@ -17,15 +17,15 @@ module.exports = {
     library: 'paseo-contact-us',
     umdNamedDefine: true
   },
-  externals: {
-    Vue: 'vue',
-    axsion: 'axios',
-    VeeValidate: 'vee-validate',
-    Component: 'vue-class-component',
-    mask: 'vue-the-mask',
-    webfont: 'webfontloader',
-    foundation: 'foundation-sites'
-  },
+  // externals: {
+  //   Vue: 'vue',
+  //   axsion: 'axios',
+  //   VeeValidate: 'vee-validate',
+  //   Component: 'vue-class-component',
+  //   mask: 'vue-the-mask',
+  //   webfont: 'webfontloader',
+  //   foundation: 'foundation-sites'
+  // },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.vue'],
     alias: {
