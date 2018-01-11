@@ -10,6 +10,7 @@ module.exports = {
   entry: {
     paseocontactus: './src/app/ts/PaseoContactUs.vue'
   },
+  target: 'node',
   output: {
     path: path.resolve(__dirname, 'plugin'),
     filename: '[name].min.js',
