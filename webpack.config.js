@@ -162,18 +162,6 @@ module.exports = {
   }
 }
 
-if (process.env.PLUGIN === 'plugin') {
-  module.exports.entry = {
-    contactus: './src/app/ts/components/ContactUs/index.vue',
-    vendor: Object.keys(vendorPackages.dependencies).filter(name => (name !== 'font-awesome' && name !== 'csspin'))
-  }
-
-  module.exports.output = {
-    path: path.resolve(__dirname, 'plugin'),
-    filename: 'contactus.min.js'
-  }
-}
-
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html

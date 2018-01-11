@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebPackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const combineLoaders = require('webpack-combine-loaders')
@@ -17,7 +18,13 @@ module.exports = {
     umdNamedDefine: true
   },
   externals: {
-    Vue: 'vue'
+    Vue: 'vue',
+    axsion: 'axios',
+    VeeValidate: 'vee-validate',
+    Component: 'vue-class-component',
+    mask: 'vue-the-mask',
+    webfont: 'webfontloader',
+    foundation: 'foundation-sites'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.vue'],
@@ -29,7 +36,13 @@ module.exports = {
     new ExtractTextPlugin({
       filename: '[name].css',
       allChunks: true
-    })
+    }),
+    new HtmlWebpackPlugin(
+      {
+        title: 'Webpack Prototype',
+        template: 'src/templates/template.html'
+      }
+    )
   ],
   module: {
     rules: [

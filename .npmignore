@@ -10,3 +10,8 @@ tsconfig.json
 tslint.json
 webpack.config.js
 webpack.plugin.config.js
+node_modules/
+dist/
+src/
+
+
